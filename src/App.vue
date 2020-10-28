@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    {{ msg }}
+    <div class="container">
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "App",
-
-  data() {
-    return {
-      msg: "starter",
-    };
-  },
-};
+export default {};
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+</style>
