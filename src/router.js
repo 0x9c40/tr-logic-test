@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import ContactsList from "./views/ContactsList.vue";
+import Contact from "./views/Contact.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -10,24 +13,16 @@ const routes = [
   },
   {
     path: "/contacts-list",
-    name: "ContactsList",
-    component: () =>
-      import(
-        /* webpackChunkName: "contacts-list" */ "./views/ContactsList.vue"
-      ),
+    component: ContactsList,
   },
   {
-    path: "/edit-contact",
-    name: "edit-contact",
-    component: () =>
-      import(/* webpackChunkName: "edit-contact" */ "./views/EditContact.vue"),
+    path: "/contact",
+    component: Contact,
   },
 ];
 
 const router = new VueRouter({
   routes,
 });
-
-let a = (env) => console.log(env);
 
 export default router;
