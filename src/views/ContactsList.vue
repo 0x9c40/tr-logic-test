@@ -3,8 +3,7 @@
     <ContactCard
       v-for="(contact, index) in contacts"
       :key="index"
-      :name="contact[1][1]"
-      :phone="contact[2][1]"
+      :contact="contact"
     />
     <AddContact />
   </div>

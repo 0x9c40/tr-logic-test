@@ -1,7 +1,8 @@
 <template>
   <div class="contact-card">
-    <div class="contact-card__name">{{ name }}</div>
-    <div class="contact-carf__phone">{{ phone }}</div>
+    <div class="contact-card__name">{{ contact[1][1] }}</div>
+    <div class="contact-carf__phone">{{ contact[2][1] }}</div>
+    <router-link :to="thisContactURL">Редактировать</router-link>
   </div>
 </template>
 
@@ -10,13 +11,15 @@ export default {
   name: "ContactCard",
 
   props: {
-    name: {
-      type: String,
+    contact: {
+      type: Array,
       required: true,
     },
-    phone: {
-      type: String,
-      required: true,
+  },
+
+  computed: {
+    thisContactURL() {
+      return `/contact/${this.contact[0][1]}`;
     },
   },
 };

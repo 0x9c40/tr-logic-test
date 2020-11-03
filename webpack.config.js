@@ -1,10 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpack = require("webpack");
+const path = require("path");
 
 module.exports = (env, { mode }) => {
   return {
     mode,
+    devtool: "source-map",
+    context: path.resolve(__dirname, "src"),
+    entry: path.resolve(__dirname, "src/index.js"),
     output: {
       publicPath: "/tr-logic-test/",
     },
@@ -30,7 +34,7 @@ module.exports = (env, { mode }) => {
       ],
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "./src/index.html" }),
+      new HtmlWebpackPlugin({ template: "./index.html" }),
       new VueLoaderPlugin(),
       new webpack.ProgressPlugin(),
     ],
