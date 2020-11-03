@@ -6,9 +6,6 @@ import Contact from "./views/Contact.vue";
 
 Vue.use(VueRouter);
 
-import { mapActions } from "vuex";
-const { loadEditableContact } = mapActions(["loadEditableContact"]);
-
 const routes = [
   {
     path: "/",
@@ -28,16 +25,6 @@ const routes = [
       };
     },
   },
-
-  // path: '/user/:userId',
-  // component: UserProfile,
-  // props: (route) => {
-  //   const userId = Number.parseInt(route.params.userId, 10)
-  //   if (Number.isNaN(userId)) {
-  //     return 0
-  //   }
-  //   return { userId }
-  // }
 ];
 
 const router = new VueRouter({

@@ -1,7 +1,7 @@
 <template>
   <div class="contact-field">
-    <div class="contact-field__key">{{ key }}</div>
-    <div class="contact-field__val">{{ val }}</div>
+    <div class="contact-field__text">{{ name }}</div>
+    <div class="contact-field__text">{{ value }}</div>
   </div>
 </template>
 
@@ -17,11 +17,11 @@ export default {
   },
 
   computed: {
-    key() {
+    name() {
       return this.field[0];
     },
 
-    val() {
+    value() {
       return this.field[1];
     },
   },

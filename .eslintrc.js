@@ -3,6 +3,7 @@ module.exports = {
     sourceType: "module",
     ecmaVersion: 9,
   },
+  parser: "babel-eslint",
   extends: [
     "eslint:recommended",
     "plugin:import/errors",

@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 export const EditableContact = {
   state: {
     fields: [],
@@ -9,8 +11,15 @@ export const EditableContact = {
     },
 
     pushNewField(state, field) {
-      console.log("pushNewField", field);
       state.fields.push(field);
+    },
+
+    removeField(state, index) {
+      state.fields.splice(index, 1);
+    },
+
+    editField(state, { index, newValue }) {
+      Vue.set(state.fields[index], 1, newValue);
     },
   },
 
@@ -20,11 +29,19 @@ export const EditableContact = {
       const editableContact = contacts.find(function findByID(contact) {
         return contact[0][1] === contactID;
       });
-      commit("setFields", editableContact);
+      commit("setFields", editableContact.splice(1));
     },
 
     addContactField({ commit }, field) {
       commit("pushNewField", field);
+    },
+
+    deleteField({ commit }, index) {
+      commit("removeField", index);
+    },
+
+    editField({ commit }, { index, newValue }) {
+      commit("editField", { index, newValue });
     },
   },
 };
