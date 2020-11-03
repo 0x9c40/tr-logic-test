@@ -13,8 +13,13 @@ export default new Vuex.Store({
         ["Name", "Lubomir"],
         ["Phone", "+79995559494"],
       ],
+      [
+        ["ID", 1],
+        ["Name", "Christy"],
+        ["Phone", "+79997772323"],
+      ],
     ],
-    newContactID: 1,
+    newContactID: 2,
   },
 
   getters: {},

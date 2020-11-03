@@ -5,9 +5,7 @@
       <form class="add-contact-form">
         <FormGroup v-model="name" label="Name" name="contact-name" />
         <FormGroup v-model="phone" label="Number" name="phone-number" />
-        <div class="add-contact__save" @click="saveContact({ name, phone })">
-          Save
-        </div>
+        <div class="add-contact__save" @click="save({ name, phone })">Save</div>
         <div class="add-contact__cancel" @click="closeModal">Cancel</div>
       </form>
     </Modal>
@@ -44,6 +42,11 @@ export default {
 
     closeModal() {
       this.isModalOpened = false;
+    },
+
+    save({ name, phone }) {
+      this.saveContact({ name, phone });
+      this.closeModal();
     },
   },
 };
