@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <ContactCard
-      v-for="(contact, index) in contacts"
-      :key="index"
-      :contact="contact"
-    />
-    <AddContact />
+  <div class="contacts-list">
+    <div class="contacts-list-cards">
+      <ContactCard
+        v-for="contact in sortedContacts"
+        :key="getContactID(contact)"
+        :contact="contact"
+      />
+    </div>
+    <AddContact class="contacts-list__add" />
   </div>
 </template>
 
@@ -13,6 +15,16 @@
 import { mapState } from "vuex";
 import AddContact from "../components/AddContact.vue";
 import ContactCard from "../components/ContactCard.vue";
+
+function getName(contact) {
+  return contact[1][1].toLowerCase();
+}
+
+function byContactName(a, b) {
+  if (getName(a) < getName(b)) return -1;
+  if (getName(a) > getName(b)) return 1;
+  return 0;
+}
 
 export default {
   name: "ContactsList",
@@ -28,9 +40,33 @@ export default {
 
   computed: {
     ...mapState(["contacts"]),
+
+    sortedContacts() {
+      const contacts = this.contacts;
+
+      return contacts.sort(byContactName);
+    },
+  },
+
+  methods: {
+    getContactID(contact) {
+      return contact[0][1];
+    },
   },
 };
 </script>
 
 <style lang="scss">
+.contacts-list {
+  &__add {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contacts-list-cards {
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  padding: 8px;
+}
 </style>

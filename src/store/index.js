@@ -18,8 +18,43 @@ export const store = new Vuex.Store({
         ["Name", "Christy"],
         ["Phone", "+79997772323"],
       ],
+      [
+        ["ID", 2],
+        ["Name", "Lubomir"],
+        ["Phone", "+79995559494"],
+      ],
+      [
+        ["ID", 3],
+        ["Name", "Christy"],
+        ["Phone", "+79997772323"],
+      ],
+      [
+        ["ID", 4],
+        ["Name", "Lubomir"],
+        ["Phone", "+79995559494"],
+      ],
+      [
+        ["ID", 5],
+        ["Name", "Christy"],
+        ["Phone", "+79997772323"],
+      ],
+      [
+        ["ID", 6],
+        ["Name", "Lubomir"],
+        ["Phone", "+79995559494"],
+      ],
+      [
+        ["ID", 7],
+        ["Name", "Christy"],
+        ["Phone", "+79997772323"],
+      ],
+      [
+        ["ID", 8],
+        ["Name", "Lubomir"],
+        ["Phone", "+79995559494"],
+      ],
     ],
-    newContactID: 2,
+    newContactID: 9,
   },
 
   getters: {},
@@ -27,6 +62,12 @@ export const store = new Vuex.Store({
   mutations: {
     pushContact(state, contact) {
       state.contacts.push(contact);
+    },
+
+    deleteContact(state, ID) {
+      state.contacts = state.contacts.filter(function byID(contact) {
+        return contact[0][1] !== ID;
+      });
     },
 
     incNewContactID(state) {
@@ -42,6 +83,10 @@ export const store = new Vuex.Store({
         ["Phone", phone],
       ]);
       commit("incNewContactID");
+    },
+
+    deleteContact({ commit }, ID) {
+      commit("deleteContact", ID);
     },
   },
 
