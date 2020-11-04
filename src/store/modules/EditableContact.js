@@ -29,7 +29,7 @@ export const EditableContact = {
       const editableContact = contacts.find(function findByID(contact) {
         return contact[0][1] === contactID;
       });
-      commit("setFields", editableContact.splice(1));
+      commit("setFields", editableContact.slice(1));
     },
 
     addContactField({ commit }, field) {

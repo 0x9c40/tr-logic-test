@@ -28,7 +28,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import { undoRedoHistory } from "../store";
+import { undoRedoHistory } from "../store/plugins/UndoPlugin";
 import Modal from "./Modal.vue";
 
 export default {
