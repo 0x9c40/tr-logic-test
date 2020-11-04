@@ -1,9 +1,10 @@
 module.exports = {
+  parser: "vue-eslint-parser",
   parserOptions: {
+    parser: "babel-eslint",
     sourceType: "module",
-    ecmaVersion: 9,
+    ecmaVersion: 6,
   },
-  parser: "babel-eslint",
   extends: [
     "eslint:recommended",
     "plugin:import/errors",
