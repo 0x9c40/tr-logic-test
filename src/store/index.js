@@ -2,13 +2,10 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import { EditableContact } from "./modules/EditableContact";
-import { undoPlugin } from "./plugins/UndoPlugin";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  plugins: [undoPlugin],
-
   state: {
     contacts: [
       [

@@ -1,8 +1,10 @@
 import Vue from "vue";
+import { cloneDeep } from "lodash";
 
 export const EditableContact = {
   state: {
     fields: [],
+    history: [],
   },
 
   mutations: {
@@ -11,15 +13,22 @@ export const EditableContact = {
     },
 
     pushNewField(state, field) {
+      state.history.push(cloneDeep(state.fields));
       state.fields.push(field);
     },
 
     removeField(state, index) {
+      state.history.push(cloneDeep(state.fields));
       state.fields.splice(index, 1);
     },
 
     editField(state, { index, newValue }) {
+      state.history.push(cloneDeep(state.fields));
       Vue.set(state.fields[index], 1, newValue);
+    },
+
+    undoLastChange(state) {
+      if (state.history.length > 0) state.fields = state.history.pop();
     },
   },
 
@@ -30,6 +39,7 @@ export const EditableContact = {
         return contact[0][1] === contactID;
       });
       commit("setFields", editableContact.slice(1));
+      console.log("loadEditableContact", this);
     },
 
     addContactField({ commit }, field) {
@@ -41,7 +51,12 @@ export const EditableContact = {
     },
 
     editField({ commit }, { index, newValue }) {
+      console.log("editField");
       commit("editField", { index, newValue });
+    },
+
+    undoLastChange({ commit }) {
+      commit("undoLastChange");
     },
   },
 };

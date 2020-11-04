@@ -28,7 +28,6 @@
 
 <script>
 import { mapActions } from "vuex";
-import { undoRedoHistory } from "../store/plugins/UndoPlugin";
 import Modal from "./Modal.vue";
 
 export default {
@@ -65,7 +64,7 @@ export default {
     return {
       confirmDeletionOpened: false,
       cancelChangesButton: false,
-      copiedValue: undefined,
+      oldValues: [],
     };
   },
 
@@ -75,13 +74,16 @@ export default {
     saveChanges(event) {
       const newValue = event.target.value;
       if (this.value !== newValue) {
+        this.oldValues.push(this.value);
         this.editField({ index: this.index, newValue });
       }
     },
 
     cancelChanges() {
-      console.log(undoRedoHistory);
-      undoRedoHistory.undo();
+      if (this.oldValues.length > 0) {
+        const newValue = this.oldValues.pop();
+        this.editField({ index: this.index, newValue });
+      }
     },
 
     openDeletionConfirm() {
