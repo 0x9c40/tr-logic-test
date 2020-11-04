@@ -1,5 +1,5 @@
 <template>
-  <div v-show="opened" class="modal" @click="$emit('close')">
+  <div v-show="opened" class="modal" @click.stop="$emit('close')">
     <div class="modal__content container" @click.stop>
       <slot></slot>
     </div>
@@ -16,6 +16,12 @@ export default {
       required: true,
     },
   },
+
+  data() {
+    return {
+      thereWasClickOnOutsideContentArea: false,
+    };
+  },
 };
 </script>
 
@@ -26,6 +32,7 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
+  padding: 32px;
   background: rgba(0, 0, 0, 0.3);
 
   &__content {

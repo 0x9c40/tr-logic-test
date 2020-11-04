@@ -26,6 +26,10 @@ body {
   color: #094f64;
 }
 
+a {
+  color: #094f64;
+}
+
 .container {
   display: block;
   width: 100%;
