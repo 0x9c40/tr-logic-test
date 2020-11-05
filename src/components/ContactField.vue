@@ -43,6 +43,7 @@ export default {
   &__value {
     width: 200px;
     padding: 0px 8px;
+    border-bottom: 1px solid white;
   }
 }
 </style>

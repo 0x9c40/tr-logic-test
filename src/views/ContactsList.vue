@@ -66,12 +66,13 @@ export default {
   &__add {
     display: flex;
     justify-content: center;
+    margin-top: 16px;
   }
 }
 
 .contacts-list-cards {
   width: 100%;
-  max-height: calc(100vh - 64px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   padding: 8px;
 }

@@ -6,7 +6,7 @@
     </div>
     <div v-if="isInterfaceOpened" class="contact-card__interface" @click.stop>
       <router-link :to="thisContactURL" class="contact-card__edit">
-        Edit
+        Info
       </router-link>
       <div class="contact-card__delete" @click="isModalOpened = true">
         Delete

@@ -3,20 +3,26 @@
     <div class="add-contact-field__show-modal" @click="showModal">+</div>
     <Modal :opened="isModalOpened" @close="closeModal">
       <form class="add-contact-field-form">
-        <input
-          v-model="fieldName"
-          type="text"
-          class="add-contact-field__input"
-          placeholder="Name"
-        />
-        <input
-          v-model="fieldValue"
-          type="text"
-          class="add-contact-field__input"
-          placeholder="Value"
-        />
-        <div class="add-contact-field__save" @click="save()">Save</div>
-        <div class="add-contact-field__cancel" @click="closeModal">Cancel</div>
+        <div class="add-contact-field-inputs">
+          <input
+            v-model="fieldName"
+            type="text"
+            class="add-contact-field-inputs__input"
+            placeholder="Name"
+          />
+          <input
+            v-model="fieldValue"
+            type="text"
+            class="add-contact-field-inputs__input"
+            placeholder="Value"
+          />
+        </div>
+        <div class="add-contact-field-buttons">
+          <div class="add-contact-field__save" @click="save()">Save</div>
+          <div class="add-contact-field__cancel" @click="closeModal">
+            Cancel
+          </div>
+        </div>
       </form>
     </Modal>
   </div>
@@ -61,5 +67,41 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.add-contact-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__show-modal {
+    cursor: pointer;
+    font-size: 32px;
+    font-weight: bold;
+    border: 3px solid #094f64;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin-top: 16px;
+  }
+}
+.add-contact-field-inputs {
+  display: flex;
+  justify-content: space-between;
+
+  &__input {
+    height: 32px;
+    padding: 0 8px;
+    width: 48%;
+    max-width: 200px;
+  }
+}
+
+.add-contact-field-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+}
 </style>

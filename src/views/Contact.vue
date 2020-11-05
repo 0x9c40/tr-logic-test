@@ -1,16 +1,22 @@
 <template>
   <div class="contact">
+    <ContactEditionInterface
+      :is-contact-editable="isEditable"
+      @edit="activateEdition"
+      @save="save"
+    >
+      <router-link class="back-to-contacts" to="/contacts-list"
+        >Back To Contacts</router-link
+      >
+    </ContactEditionInterface>
+
     <ContactFields v-show="!isEditable" :fields="contactFields" />
 
     <ContactEditForm v-show="isEditable" :fields="contactFields" />
 
-    <ContactEditionInterface
-      :is-contact-editable="isEditable"
-      @edit="activateEdition"
-      @save="saveChanges"
-    />
+    <!-- <ContactFields :fields="contactFields" />
 
-    <router-link to="/contacts-list">Вернуться к контактам</router-link>
+    <ContactEditForm :fields="contactFields" /> -->
   </div>
 </template>
 
@@ -55,13 +61,14 @@ export default {
   },
 
   methods: {
-    ...mapActions(["loadEditableContact"]),
+    ...mapActions(["loadEditableContact", "saveChanges"]),
 
     activateEdition() {
       this.isEditable = true;
     },
 
-    saveChanges() {
+    save() {
+      this.saveChanges();
       this.isEditable = false;
     },
   },
@@ -69,4 +76,8 @@ export default {
 </script>
 
 <style lang="scss">
+.back-to-contacts {
+  font-size: 20px;
+  text-decoration: none;
+}
 </style>

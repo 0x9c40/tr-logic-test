@@ -30,6 +30,16 @@ export const EditableContact = {
     undoLastChange(state) {
       if (state.history.length > 0) state.fields = state.history.pop();
     },
+
+    clearHistory(state) {
+      state.history = [];
+    },
+  },
+
+  getters: {
+    contactModified(state) {
+      return state.history.length > 0;
+    },
   },
 
   actions: {
@@ -57,6 +67,10 @@ export const EditableContact = {
 
     undoLastChange({ commit }) {
       commit("undoLastChange");
+    },
+
+    saveChanges({ commit }) {
+      commit("clearHistory");
     },
   },
 };
