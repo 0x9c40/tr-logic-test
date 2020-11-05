@@ -1,12 +1,11 @@
 <template>
   <div class="contact-edition-interface">
-    <div
-      v-if="isContactEditable"
-      class="contact-edition-interface__save"
-      @click="$emit('save')"
-    >
-      Save
-    </div>
+    <template v-if="isContactEditable">
+      <div class="contact-edition-interface__save" @click="$emit('save')">
+        Save
+      </div>
+      <div @click="undoLastChange">Undo Last Change</div>
+    </template>
 
     <div
       v-else-if="!isContactEditable"
@@ -15,8 +14,6 @@
     >
       Edit
     </div>
-
-    <div @click="undoLastChange">Undo Last Change</div>
   </div>
 </template>
 
@@ -38,5 +35,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.contact-edition-interface {
+  display: flex;
+}
 </style>

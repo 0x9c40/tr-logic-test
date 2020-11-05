@@ -34,6 +34,7 @@ export default {
   height: 100vh;
   padding: 32px;
   background: rgba(0, 0, 0, 0.3);
+  cursor: auto;
 
   &__content {
     background: white;

@@ -8,10 +8,13 @@
       :value="field[1]"
       :index="index"
     />
+
+    <AddContactField />
   </form>
 </template>
 
 <script>
+import AddContactField from "../components/AddContactField.vue";
 import ContactEditFormGroup from "./ContactEditFormGroup.vue";
 
 export default {
@@ -19,6 +22,7 @@ export default {
 
   components: {
     ContactEditFormGroup,
+    AddContactField,
   },
 
   props: {
@@ -32,6 +36,6 @@ export default {
 
 <style lang="scss">
 .contact-edit-form {
-  border: 1px solid orange;
+  padding: 16px;
 }
 </style>

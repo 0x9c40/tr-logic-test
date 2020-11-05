@@ -19,10 +19,10 @@ export default {};
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
   color: #094f64;
 }
 

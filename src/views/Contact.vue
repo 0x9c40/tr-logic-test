@@ -1,10 +1,8 @@
 <template>
   <div class="contact">
-    <ContactFields :fields="contactFields" />
+    <ContactFields v-show="!isEditable" :fields="contactFields" />
 
-    <ContactEditForm :fields="contactFields" />
-
-    <AddContactField />
+    <ContactEditForm v-show="isEditable" :fields="contactFields" />
 
     <ContactEditionInterface
       :is-contact-editable="isEditable"
@@ -20,7 +18,6 @@
 import { mapState, mapActions } from "vuex";
 import ContactFields from "../components/ContactFields.vue";
 import ContactEditForm from "../components/ContactEditForm.vue";
-import AddContactField from "../components/AddContactField.vue";
 import ContactEditionInterface from "../components/ContactEditionInterface.vue";
 
 export default {
@@ -29,7 +26,6 @@ export default {
   components: {
     ContactFields,
     ContactEditForm,
-    AddContactField,
     ContactEditionInterface,
   },
 

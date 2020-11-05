@@ -58,6 +58,11 @@ export default {
 
 <style lang="scss">
 .contacts-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
   &__add {
     display: flex;
     justify-content: center;
@@ -65,6 +70,7 @@ export default {
 }
 
 .contacts-list-cards {
+  width: 100%;
   max-height: calc(100vh - 64px);
   overflow-y: auto;
   padding: 8px;

@@ -12,11 +12,11 @@
       class="contact-edit-form-group__input"
       @blur="saveChanges"
     />
-
+    <!-- 
     <div class="cancel" @click="cancelChanges">can</div>
     <span>|</span>
 
-    <div class="delete" @click="openDeletionConfirm">del</div>
+    <div class="delete" @click="openDeletionConfirm">del</div> -->
 
     <Modal :opened="confirmDeletionOpened">
       <div class="confirm-deletion" @click="confirmFieldDeletion">
@@ -103,33 +103,27 @@ export default {
   display: flex;
   margin-bottom: 16px;
   height: 32px;
+  justify-content: space-between;
+  align-items: center;
   // color: $text-color-grey;
-  font-size: 14px;
 
   &__label {
-    width: 200px;
     display: flex;
     align-items: center;
     font-weight: bold;
   }
 
-  &__select {
-    padding: 0 10px;
-    border-radius: 0;
-  }
-
   &__input {
-    border-radius: 0;
-    // border: 1px solid $color-grey;
-    padding: 0 10px;
+    width: 200px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #777777;
+    font-size: 16px;
+    padding: 0px 8px;
     // color: $text-color-grey;
 
-    &--long {
-      width: 400px;
-    }
-
     &:focus {
-      // outline: 1px solid $color-blue;
+      outline: 1px solid green;
     }
   }
 }

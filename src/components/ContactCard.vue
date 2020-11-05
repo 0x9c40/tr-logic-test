@@ -150,6 +150,7 @@ export default {
     border: 1px solid #444444;
     padding: 4px 16px;
     border-radius: 4px;
+    cursor: pointer;
 
     &:hover {
       background-color: #f5f5f5;

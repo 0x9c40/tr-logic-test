@@ -42,27 +42,21 @@ export default {
 <style lang="scss">
 .form-group {
   display: flex;
+  flex-direction: column;
   margin-bottom: 16px;
-  height: 32px;
   // color: $text-color-grey;
   font-size: 14px;
 
   &__label {
-    width: 200px;
-    display: flex;
-    align-items: center;
     font-weight: bold;
-  }
-
-  &__select {
-    padding: 0 10px;
-    border-radius: 0;
+    margin-bottom: 8px;
   }
 
   &__input {
-    border-radius: 0;
-    // border: 1px solid $color-grey;
+    border-radius: 4px;
+    border: 1px solid #777777;
     padding: 0 10px;
+    height: 32px;
     // color: $text-color-grey;
 
     &--long {

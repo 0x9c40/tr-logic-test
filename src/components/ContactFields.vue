@@ -29,6 +29,6 @@ export default {
 
 <style lang="scss">
 .contact-fields {
-  border: 1px solid lime;
+  padding: 16px;
 }
 </style>

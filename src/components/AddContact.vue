@@ -1,12 +1,17 @@
 <template>
-  <div class="add-contact">
-    <div class="add-contact__show-modal" @click="showModal">Add Contact</div>
+  <div class="add-contact" @click="showModal">
+    <div class="add-contact__label">Add Contact</div>
+
     <Modal :opened="isModalOpened" @close="closeModal">
-      <form class="add-contact-form">
+      <form class="add-contact-form" @click.stop>
         <FormGroup v-model="name" label="Name" name="contact-name" />
         <FormGroup v-model="phone" label="Number" name="phone-number" />
-        <div class="add-contact__save" @click="save({ name, phone })">Save</div>
-        <div class="add-contact__cancel" @click="closeModal">Cancel</div>
+        <div class="add-contact-buttons">
+          <div class="add-contact__save" @click="save({ name, phone })">
+            Save
+          </div>
+          <div class="add-contact__cancel" @click="closeModal">Cancel</div>
+        </div>
       </form>
     </Modal>
   </div>
@@ -52,5 +57,24 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.add-contact {
+  &__label {
+    padding: 8px 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
+    transition: background-color 0.1s;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.add-contact-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 32px;
+}
 </style>
