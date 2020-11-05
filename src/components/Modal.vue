@@ -35,6 +35,7 @@ export default {
   padding: 32px;
   background: rgba(0, 0, 0, 0.3);
   cursor: auto;
+  z-index: 1;
 
   &__content {
     background: white;

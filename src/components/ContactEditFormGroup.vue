@@ -4,23 +4,73 @@
       {{ label }}
     </label>
 
-    <input
-      :id="name"
-      :name="name"
-      :type="type"
-      :value="value"
-      class="contact-edit-form-group__input"
-      @blur="saveChanges"
-    />
-    <!-- 
-    <div class="cancel" @click="cancelChanges">can</div>
-    <span>|</span>
+    <div class="contact-edit-form-group-input">
+      <input
+        :id="name"
+        :name="name"
+        :type="type"
+        :value="value"
+        class="contact-edit-form-group__input"
+        @blur="saveChanges"
+      />
 
-    <div class="delete" @click="openDeletionConfirm">del</div> -->
+      <div
+        class="cancel"
+        :class="{ 'cancel--active': oldValues.length > 0 }"
+        @click="confirmUndoOpened = true"
+      >
+        <img
+          class="cancel__image"
+          src="@/assets/icons/undo-arrow.svg"
+          alt="undo-arrow.svg"
+        />
+      </div>
+      <div
+        class="delete"
+        :class="{ 'cancel--active': ![0, 1].includes(index) }"
+        @click="openDeletionConfirm"
+      >
+        <img
+          class="delete__image"
+          src="@/assets/icons/trash.svg"
+          alt="undo-arrow.svg"
+        />
+      </div>
+    </div>
 
-    <Modal :opened="confirmDeletionOpened">
-      <div class="confirm-deletion" @click="confirmFieldDeletion">
-        Confirm Field Deletion
+    <Modal
+      :opened="confirmDeletionOpened"
+      @close="confirmDeletionOpened = false"
+    >
+      <div class="confirm-question">Are you sure?</div>
+      <div class="confirm-buttons">
+        <div
+          class="confirm-buttons__button"
+          @click="confirmDeletionOpened = false"
+        >
+          Cancel
+        </div>
+        <div
+          class="confirm-buttons__button confirm-buttons__button--delete"
+          @click="confirmFieldDeletion"
+        >
+          Yes, delete.
+        </div>
+      </div>
+    </Modal>
+
+    <Modal :opened="confirmUndoOpened" @close="confirmUndoOpened = false">
+      <div class="confirm-question">Are you sure?</div>
+      <div class="confirm-buttons">
+        <div class="confirm-buttons__button" @click="confirmUndoOpened = false">
+          Cancel
+        </div>
+        <div
+          class="confirm-buttons__button confirm-buttons__button--delete"
+          @click="confirmUndo"
+        >
+          Yes, undo changes.
+        </div>
       </div>
     </Modal>
   </div>
@@ -63,6 +113,7 @@ export default {
   data() {
     return {
       confirmDeletionOpened: false,
+      confirmUndoOpened: false,
       cancelChangesButton: false,
       oldValues: [],
     };
@@ -94,6 +145,11 @@ export default {
       this.deleteField(this.index);
       this.confirmDeletionOpened = false;
     },
+
+    confirmUndo() {
+      this.confirmUndoOpened = false;
+      this.cancelChanges();
+    },
   },
 };
 </script>
@@ -114,8 +170,8 @@ export default {
   }
 
   &__input {
-    width: 200px;
-    height: 32px;
+    height: 100%;
+    width: calc(200px - 16px - 16px - 8px - 8px);
     border: none;
     border-bottom: 1px solid #777777;
     font-size: 16px;
@@ -125,6 +181,32 @@ export default {
     &:focus {
       outline: 1px solid green;
     }
+  }
+}
+
+.contact-edit-form-group-input {
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.delete,
+.cancel {
+  height: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  &--active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__image {
+    width: 16px;
+    margin-left: 8px;
+    filter: invert(0.5);
   }
 }
 </style>

@@ -4,9 +4,9 @@
       v-for="(field, index) in fields"
       :key="index"
       :label="field[0]"
-      :name="String(index)"
       :value="field[1]"
       :index="index"
+      :name="String(index)"
     />
 
     <AddContactField />

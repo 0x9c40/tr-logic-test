@@ -18,8 +18,10 @@
           />
         </div>
         <div class="add-contact-field-buttons">
-          <div class="add-contact-field__save" @click="save()">Save</div>
-          <div class="add-contact-field__cancel" @click="closeModal">
+          <div class="add-contact-field-buttons__save" @click="save()">
+            Save
+          </div>
+          <div class="add-contact-field-buttons__cancel" @click="closeModal">
             Cancel
           </div>
         </div>
@@ -103,5 +105,10 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-top: 24px;
+
+  &__save,
+  &__cancel {
+    cursor: pointer;
+  }
 }
 </style>

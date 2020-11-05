@@ -49,7 +49,6 @@ export const EditableContact = {
         return contact[0][1] === contactID;
       });
       commit("setFields", editableContact.slice(1));
-      console.log("loadEditableContact", this);
     },
 
     addContactField({ commit }, field) {
@@ -61,7 +60,6 @@ export const EditableContact = {
     },
 
     editField({ commit }, { index, newValue }) {
-      console.log("editField");
       commit("editField", { index, newValue });
     },
 

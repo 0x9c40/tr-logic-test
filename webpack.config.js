@@ -16,6 +16,12 @@ module.exports = (env, { mode }) => {
       contentBase: "./dist",
       hot: true,
     },
+    resolve: {
+      extensions: [".js", ".vue", ".json"],
+      alias: {
+        "@": path.join(__dirname, "src"),
+      },
+    },
     module: {
       rules: [
         {
@@ -30,6 +36,14 @@ module.exports = (env, { mode }) => {
         {
           test: /\.scss$/,
           use: ["style-loader", "css-loader", "sass-loader"],
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "svg-url-loader",
+            },
+          ],
         },
       ],
     },
