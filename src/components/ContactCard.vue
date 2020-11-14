@@ -1,17 +1,17 @@
 <template>
-  <div class="contact-card" @click="toggleInterface">
-    <div class="contact-card__info">
-      <div class="contact-card__name">{{ name }}</div>
-      <div class="contact-card__phone">{{ phone }}</div>
+  <div class="card" @click="toggleInterface">
+    <div class="card__info">
+      <div class="card__name">{{ name }}</div>
+      <div class="card__phone">{{ phone }}</div>
     </div>
-    <div v-if="isInterfaceOpened" class="contact-card__interface" @click.stop>
-      <router-link :to="thisContactURL" class="contact-card__edit">
-        Info
-      </router-link>
-      <div class="contact-card__delete" @click="isModalOpened = true">
-        Delete
+    <transition name="open">
+      <div v-show="isInterfaceOpened" class="card__interface" @click.stop>
+        <router-link :to="thisContactURL" class="card__edit">
+          Info
+        </router-link>
+        <div class="card__delete" @click="isModalOpened = true">Delete</div>
       </div>
-    </div>
+    </transition>
     <Modal :opened="isModalOpened" @close="isModalOpened = false">
       <div class="confirm-question">Are you sure?</div>
       <div class="confirm-buttons">
@@ -82,8 +82,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.contact-card {
+<style lang="scss" scoped>
+.card {
   cursor: pointer;
   border-radius: 4px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
@@ -115,6 +115,8 @@ export default {
     display: flex;
     padding: 0 16px 16px;
     justify-content: flex-end;
+    overflow: hidden;
+    max-height: 40px;
   }
 
   &__edit {
@@ -161,5 +163,17 @@ export default {
   &__delete {
     font-weight: bold;
   }
+}
+
+.open-enter-active,
+.open-leave-active {
+  transition: max-height 0.2s, padding 0.2s, opacity 0.2s;
+}
+
+.open-enter,
+.open-leave-to {
+  max-height: 0;
+  padding: 0 16px;
+  opacity: 0;
 }
 </style>
