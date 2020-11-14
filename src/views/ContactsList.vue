@@ -1,12 +1,14 @@
 <template>
   <div class="contacts-list">
-    <div class="contacts-list-groups">
-      <ContactsGroup
-        v-for="(group, key) in contactGroupsByName"
-        :key="key"
-        :group-label="key"
-        :contacts="group"
-      />
+    <div class="contacts-list-groups-wrapper">
+      <div class="contacts-list-groups">
+        <ContactsGroup
+          v-for="(group, key) in contactGroupsByName"
+          :key="key"
+          :group-label="key"
+          :contacts="group"
+        />
+      </div>
     </div>
     <AddContact class="contacts-list__add" />
   </div>
@@ -72,9 +74,9 @@ function byFirstLetterOfName(contact) {
 
 <style lang="scss">
 .contacts-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
 
   &__add {
@@ -84,10 +86,16 @@ function byFirstLetterOfName(contact) {
   }
 }
 
-.contacts-list-groups {
+.contacts-list-groups-wrapper {
   width: 100%;
+  overflow-x: hidden;
+}
+
+.contacts-list-groups {
+  width: calc(100% + var(--scrollbar-width));
   max-height: calc(100vh - 100px);
   overflow-y: auto;
   padding: 0 var(--contacts-list-groups-padding);
+  overflow-y: scroll;
 }
 </style>

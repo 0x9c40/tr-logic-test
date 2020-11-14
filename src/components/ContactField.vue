@@ -38,6 +38,9 @@ export default {
 
   &__label {
     font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   &__value {

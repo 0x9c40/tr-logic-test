@@ -17,6 +17,7 @@
   "author": "superintelligence <lubomirvinnik@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@xobotyi/scrollbar-width": "^1.9.5",
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "regenerator-runtime": "^0.13.7",

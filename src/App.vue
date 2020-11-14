@@ -9,7 +9,16 @@
 </template>
 
 <script>
-export default {};
+import { scrollbarWidth } from "@xobotyi/scrollbar-width";
+
+export default {
+  mounted() {
+    let root = document.documentElement;
+    document.addEventListener("readystatechange", () => {
+      root.style.setProperty("--scrollbar-width", `${scrollbarWidth()}px`);
+    });
+  },
+};
 </script>
 
 <style lang="scss">
