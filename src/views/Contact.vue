@@ -5,9 +5,9 @@
       @edit="activateEdition"
       @save="save"
     >
-      <router-link class="back-to-contacts" to="/contacts-list"
-        >Back To Contacts</router-link
-      >
+      <router-link class="back-to-contacts" to="/contacts-list">
+        Back To Contacts
+      </router-link>
     </ContactEditionInterface>
 
     <ContactFields v-show="!isEditable" :fields="contactFields" />

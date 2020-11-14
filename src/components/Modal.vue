@@ -30,17 +30,17 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   padding: 32px;
   background: rgba(0, 0, 0, 0.3);
   cursor: auto;
-  z-index: 1;
 
   &__content {
+    margin-top: 20%;
     background: white;
     border-radius: 4px;
-    margin-top: 20%;
   }
 }
 </style>

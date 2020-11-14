@@ -44,21 +44,21 @@ export default {
 <style lang="scss" scoped>
 .group {
   &__label {
-    width: 42px;
-    height: 42px;
-    font-size: 20px;
+    position: relative;
+    left: calc(-1 * var(--contacts-list-groups-padding) + 4px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    text-transform: uppercase;
-    font-weight: bold;
+    width: 42px;
+    height: 42px;
     margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
     border: 1px solid rgba(var(--color-main), 0.4);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
-    position: relative;
-    left: calc(-1 * var(--contacts-list-groups-padding) + 4px);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
 </style>

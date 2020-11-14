@@ -31,21 +31,21 @@ export default {
 <style lang="scss">
 .contact-field {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  height: 32px;
   align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  margin-bottom: 16px;
 
   &__label {
-    font-weight: bold;
-    text-overflow: ellipsis;
     overflow: hidden;
+    font-weight: bold;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &__value {
     width: 200px;
-    padding: 0px 8px;
+    padding: 0 8px;
     border-bottom: 1px solid white;
   }
 }

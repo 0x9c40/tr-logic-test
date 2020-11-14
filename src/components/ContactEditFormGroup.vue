@@ -157,10 +157,10 @@ export default {
 <style lang="scss">
 .contact-edit-form-group {
   display: flex;
-  margin-bottom: 16px;
-  height: 32px;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  margin-bottom: 16px;
   // color: $text-color-grey;
 
   &__label {
@@ -170,12 +170,12 @@ export default {
   }
 
   &__input {
-    height: 100%;
     width: calc(200px - 16px - 16px - 8px - 8px);
-    border: none;
-    border-bottom: 1px solid #777777;
+    height: 100%;
+    padding: 0 8px;
     font-size: 16px;
-    padding: 0px 8px;
+    border: none;
+    border-bottom: 1px solid #777;
     // color: $text-color-grey;
 
     &:focus {
@@ -185,18 +185,18 @@ export default {
 }
 
 .contact-edit-form-group-input {
-  height: 32px;
   display: flex;
   align-items: center;
+  height: 32px;
 }
 
 .delete,
 .cancel {
   height: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
   cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
 
   &--active {
     opacity: 1;

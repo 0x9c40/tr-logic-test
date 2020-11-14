@@ -44,27 +44,21 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
-  // color: $text-color-grey;
   font-size: 14px;
 
   &__label {
-    font-weight: bold;
     margin-bottom: 8px;
+    font-weight: bold;
   }
 
   &__input {
-    border-radius: 4px;
-    border: 1px solid #777777;
-    padding: 0 10px;
     height: 32px;
-    // color: $text-color-grey;
+    padding: 0 10px;
+    border: 1px solid #777;
+    border-radius: 4px;
 
     &--long {
       width: 400px;
-    }
-
-    &:focus {
-      // outline: 1px solid $color-blue;
     }
   }
 }

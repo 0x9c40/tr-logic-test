@@ -63,9 +63,9 @@ export default {
 .add-contact {
   &__label {
     padding: 8px 24px;
-    cursor: pointer;
     border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.36);
+    cursor: pointer;
     transition: background-color 0.1s;
 
     &:hover {

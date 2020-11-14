@@ -47,10 +47,10 @@ export default {
 <style lang="scss">
 .contact-edition-interface {
   display: flex;
-  padding: 16px;
-  height: 32px;
   align-items: center;
   justify-content: space-between;
+  height: 32px;
+  padding: 16px;
 
   &__edit {
     margin-left: auto;
@@ -66,8 +66,8 @@ export default {
 
   &__undo {
     opacity: 0;
-    pointer-events: none;
     transition: opacity 0.2s;
+    pointer-events: none;
 
     &--active {
       opacity: 1;

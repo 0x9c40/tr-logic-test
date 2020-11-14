@@ -84,10 +84,10 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
   margin-bottom: 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.36);
+  cursor: pointer;
   transition: background-color 0.1s;
 
   &:hover {
@@ -101,10 +101,10 @@ export default {
 
   &__name,
   &__phone {
-    text-overflow: ellipsis;
+    width: 50%;
     overflow: hidden;
     white-space: nowrap;
-    width: 50%;
+    text-overflow: ellipsis;
   }
 
   &__phone {
@@ -113,35 +113,35 @@ export default {
 
   &__interface {
     display: flex;
-    padding: 0 16px 16px;
     justify-content: flex-end;
-    overflow: hidden;
     max-height: 40px;
+    padding: 0 16px 16px;
+    overflow: hidden;
   }
 
   &__edit {
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
   }
 
   &__delete {
-    font-weight: bold;
     margin-left: 16px;
+    font-weight: bold;
   }
 
   &__edit,
   &__delete {
     &:hover {
-      color: #444444;
+      color: #444;
     }
   }
 }
 
 .confirm-question {
-  text-align: center;
+  margin-bottom: 36px;
   font-weight: bold;
   font-size: 24px;
-  margin-bottom: 36px;
+  text-align: center;
 }
 
 .confirm-buttons {
@@ -150,8 +150,8 @@ export default {
   padding: 16px;
 
   &__button {
-    border: 1px solid #444444;
     padding: 4px 16px;
+    border: 1px solid #444;
     border-radius: 4px;
     cursor: pointer;
 

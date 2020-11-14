@@ -74,14 +74,13 @@ function byFirstLetterOfName(contact) {
 
 <style lang="scss">
 .contacts-list {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   &__add {
     display: flex;
-    justify-content: center;
     margin-top: 16px;
   }
 }
@@ -94,7 +93,6 @@ function byFirstLetterOfName(contact) {
 .contacts-list-groups {
   width: calc(100% + var(--scrollbar-width));
   max-height: calc(100vh - 100px);
-  overflow-y: auto;
   padding: 0 var(--contacts-list-groups-padding);
   overflow-y: scroll;
 }

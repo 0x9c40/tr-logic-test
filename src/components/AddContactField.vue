@@ -80,27 +80,28 @@ export default {
   align-items: center;
 
   &__show-modal {
-    padding: 8px 24px;
-    cursor: pointer;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
-    transition: background-color 0.1s;
     margin-top: 16px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.36);
+    cursor: pointer;
+    transition: background-color 0.1s;
 
     &:hover {
       background-color: #f5f5f5;
     }
   }
 }
+
 .add-contact-field-inputs {
   display: flex;
   justify-content: space-between;
 
   &__input {
-    height: 32px;
-    padding: 0 8px;
     width: 48%;
     max-width: 200px;
+    height: 32px;
+    padding: 0 8px;
   }
 }
 
