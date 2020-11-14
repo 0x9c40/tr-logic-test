@@ -67,7 +67,10 @@ export const EditableContact = {
       commit("undoLastChange");
     },
 
-    saveChanges({ commit }) {
+    saveChanges({ commit }, contactID) {
+      commit("replaceContact", contactID, {
+        root: true,
+      });
       commit("clearHistory");
     },
   },

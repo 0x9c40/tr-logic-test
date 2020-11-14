@@ -68,7 +68,7 @@ export default {
     },
 
     save() {
-      this.saveChanges();
+      this.saveChanges(this.contactID);
       this.isEditable = false;
     },
   },

@@ -48,6 +48,15 @@ export const store = new Vuex.Store({
     incNewContactID(state) {
       state.newContactID++;
     },
+
+    replaceContact(state, contactID) {
+      const oldContact = state.contacts.find(function byID(contact) {
+        return contact[0][1] === contactID;
+      });
+      const index = state.contacts.indexOf(oldContact);
+      const newContact = [["ID", contactID], ...state.EditableContact.fields];
+      state.contacts.splice(index, 1, newContact);
+    },
   },
 
   actions: {
