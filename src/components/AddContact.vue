@@ -51,6 +51,8 @@ export default {
 
     save({ name, phone }) {
       this.saveContact({ name, phone });
+      this.name = "";
+      this.phone = "";
       this.closeModal();
     },
   },

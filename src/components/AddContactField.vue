@@ -64,6 +64,8 @@ export default {
 
     save() {
       const field = [this.fieldName, this.fieldValue];
+      this.fieldName = "";
+      this.fieldValue = "";
       this.addContactField(field);
       this.closeModal();
     },

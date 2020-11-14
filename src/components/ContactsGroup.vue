@@ -58,7 +58,7 @@ export default {
     border: 1px solid rgba(var(--color-main), 0.4);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
     position: relative;
-    left: calc(-1 * var(--contacts-list-groups-padding));
+    left: calc(-1 * var(--contacts-list-groups-padding) + 4px);
   }
 }
 </style>
