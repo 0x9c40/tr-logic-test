@@ -1,6 +1,6 @@
 <template>
-  <div v-show="opened" class="modal" @click.stop="$emit('close')">
-    <div class="modal__content container" @click.stop>
+  <div v-show="opened" class="modal" @mousedown="$emit('close')">
+    <div class="modal__content container" @mousedown.stop>
       <slot></slot>
     </div>
   </div>

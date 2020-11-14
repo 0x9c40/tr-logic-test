@@ -1,6 +1,8 @@
 <template>
   <div class="add-contact-field">
-    <div class="add-contact-field__show-modal" @click="showModal">+</div>
+    <div class="add-contact-field__show-modal" @click="showModal">
+      Add Field
+    </div>
     <Modal :opened="isModalOpened" @close="closeModal">
       <form class="add-contact-field-form">
         <div class="add-contact-field-inputs">
@@ -76,17 +78,16 @@ export default {
   align-items: center;
 
   &__show-modal {
+    padding: 8px 24px;
     cursor: pointer;
-    font-size: 32px;
-    font-weight: bold;
-    border: 3px solid var(--color-main);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 40px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
+    transition: background-color 0.1s;
     margin-top: 16px;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
   }
 }
 .add-contact-field-inputs {
