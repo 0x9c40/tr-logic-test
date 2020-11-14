@@ -15,6 +15,11 @@ export default {};
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 
+:root {
+  --color-main: 9, 79, 100;
+  --contacts-list-groups-padding: 32px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -23,18 +28,24 @@ export default {};
 }
 
 body {
-  color: #094f64;
+  color: var(--color-main);
 }
 
 a {
-  color: #094f64;
+  color: var(--color-main);
 }
 
 .container {
   display: block;
   width: 100%;
-  max-width: 480px;
+  max-width: calc(480px + var(--contacts-list-groups-padding));
   margin: auto;
   padding: 16px;
+}
+
+@media (max-width: 420px) {
+  :root {
+    --contacts-list-groups-padding: 16px;
+  }
 }
 </style>

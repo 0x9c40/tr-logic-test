@@ -16,45 +16,20 @@ export const store = new Vuex.Store({
       [
         ["ID", 1],
         ["Name", "Christy"],
-        ["Phone", "+79997772323"],
+        ["Phone", "+79117772323"],
       ],
       [
         ["ID", 2],
-        ["Name", "Lubomir"],
-        ["Phone", "+79995559494"],
+        ["Name", "Leonid"],
+        ["Phone", "+79112435465"],
       ],
       [
         ["ID", 3],
-        ["Name", "Christy"],
-        ["Phone", "+79997772323"],
-      ],
-      [
-        ["ID", 4],
-        ["Name", "Lubomir"],
-        ["Phone", "+79995559494"],
-      ],
-      [
-        ["ID", 5],
-        ["Name", "Christy"],
-        ["Phone", "+79997772323"],
-      ],
-      [
-        ["ID", 6],
-        ["Name", "Lubomir"],
-        ["Phone", "+79995559494"],
-      ],
-      [
-        ["ID", 7],
-        ["Name", "Christy"],
-        ["Phone", "+79997772323"],
-      ],
-      [
-        ["ID", 8],
-        ["Name", "Lubomir"],
-        ["Phone", "+79995559494"],
+        ["Name", "Lera"],
+        ["Phone", "+79112333456"],
       ],
     ],
-    newContactID: 9,
+    newContactID: 4,
   },
 
   getters: {},

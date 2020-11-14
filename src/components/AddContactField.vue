@@ -79,7 +79,7 @@ export default {
     cursor: pointer;
     font-size: 32px;
     font-weight: bold;
-    border: 3px solid #094f64;
+    border: 3px solid var(--color-main);
     border-radius: 50%;
     display: flex;
     justify-content: center;

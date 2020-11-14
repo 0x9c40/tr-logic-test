@@ -134,6 +134,7 @@ export default {
     }
   }
 }
+
 .confirm-question {
   text-align: center;
   font-weight: bold;

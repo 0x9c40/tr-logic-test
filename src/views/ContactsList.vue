@@ -1,10 +1,11 @@
 <template>
   <div class="contacts-list">
-    <div class="contacts-list-cards">
-      <ContactCard
-        v-for="contact in sortedContacts"
-        :key="getContactID(contact)"
-        :contact="contact"
+    <div class="contacts-list-groups">
+      <ContactsGroup
+        v-for="(group, key) in contactGroupsByName"
+        :key="key"
+        :group-label="key"
+        :contacts="group"
       />
     </div>
     <AddContact class="contacts-list__add" />
@@ -14,24 +15,15 @@
 <script>
 import { mapState } from "vuex";
 import AddContact from "../components/AddContact.vue";
-import ContactCard from "../components/ContactCard.vue";
-
-function getName(contact) {
-  return contact[1][1].toLowerCase();
-}
-
-function byContactName(a, b) {
-  if (getName(a) < getName(b)) return -1;
-  if (getName(a) > getName(b)) return 1;
-  return 0;
-}
+import ContactsGroup from "../components/ContactsGroup.vue";
+import groupBy from "lodash/groupBy";
 
 export default {
   name: "ContactsList",
 
   components: {
     AddContact,
-    ContactCard,
+    ContactsGroup,
   },
 
   data() {
@@ -40,6 +32,14 @@ export default {
 
   computed: {
     ...mapState(["contacts"]),
+
+    contactGroupsByName() {
+      const contacts = this.sortedContacts;
+
+      const groups = groupBy(contacts, byFirstLetterOfName);
+
+      return groups;
+    },
 
     sortedContacts() {
       const contacts = this.contacts;
@@ -54,6 +54,20 @@ export default {
     },
   },
 };
+
+function getName(contact) {
+  return contact[1][1].toLowerCase();
+}
+
+function byContactName(a, b) {
+  if (getName(a) < getName(b)) return -1;
+  if (getName(a) > getName(b)) return 1;
+  return 0;
+}
+
+function byFirstLetterOfName(contact) {
+  return getName(contact)[0].toLowerCase();
+}
 </script>
 
 <style lang="scss">
@@ -70,10 +84,10 @@ export default {
   }
 }
 
-.contacts-list-cards {
+.contacts-list-groups {
   width: 100%;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  padding: 8px;
+  padding: 0 var(--contacts-list-groups-padding);
 }
 </style>
