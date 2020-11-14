@@ -68,7 +68,7 @@ function byContactName(a, b) {
 }
 
 function byFirstLetterOfName(contact) {
-  return getName(contact)[0].toLowerCase();
+  return getName(contact)[0] ? getName(contact)[0].toLowerCase() : "";
 }
 </script>
 
